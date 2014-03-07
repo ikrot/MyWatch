@@ -29,8 +29,8 @@ static void handle_battery(BatteryChargeState charge_state) {
 
 // Called once per second
 static void handle_second_tick(struct tm* tick_time, TimeUnits units_changed) {
-  static char time_tH[2], time_tM[2], time_tS[2], 
-              day_m[6], day_n[4], day_y[2];
+  static char time_tH[] = "00", time_tM[] = "00", time_tS[] = "00", 
+              day_m[] ="0000000", day_n[] = "0000", day_y[] = "00";
   
   strftime(time_tH, sizeof(time_tH), "%H", tick_time);
   strftime(time_tM, sizeof(time_tM), "%M", tick_time);
