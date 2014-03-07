@@ -29,8 +29,8 @@ static void handle_battery(BatteryChargeState charge_state) {
 
 // Called once per second
 static void handle_second_tick(struct tm* tick_time, TimeUnits units_changed) {
-  static char time_tH[] = "00", time_tM[] = "00", time_tS[] = "00", 
-              day_m[] ="00", day_n[] = "00", day_y[] = "00";
+  static char time_tH[2], time_tM[2], time_tS[2], 
+              day_m[6], day_n[4], day_y[2];
   
   strftime(time_tH, sizeof(time_tH), "%H", tick_time);
   strftime(time_tM, sizeof(time_tM), "%M", tick_time);
@@ -63,14 +63,15 @@ static void do_init(void) {
   Layer *root_layer = window_get_root_layer(window);
   GRect frame = layer_get_frame(root_layer);
   
-//  ResHandle font_handle = resource_get_handle(RESOURCE_ID_FONT_AVANTE_EB_52);
+  
+  ResHandle font_handle = resource_get_handle(RESOURCE_ID_FONT_50);
   
   // Init Line #1  ############################################################
   // Init the text layer used to show the H
   time_lH = text_layer_create(GRect(1, 3, 94 /* width */, 52/* height */));
   text_layer_set_text_color(time_lH, GColorBlack);
   text_layer_set_background_color(time_lH, GColorWhite);
-  text_layer_set_font(time_lH, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
+  text_layer_set_font(time_lH, fonts_load_custom_font(font_handle));
   text_layer_set_text_alignment(time_lH, GTextAlignmentCenter);
 
   // Init the text layer used to show the Add Info
@@ -102,7 +103,7 @@ static void do_init(void) {
   time_lM = text_layer_create(GRect(49, 58, 94, 52));
   text_layer_set_text_color(time_lM, GColorBlack);
   text_layer_set_background_color(time_lM, GColorWhite);
-  text_layer_set_font(time_lM, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD)); 
+  text_layer_set_font(time_lM, fonts_load_custom_font(font_handle)); 
   text_layer_set_text_alignment(time_lM, GTextAlignmentCenter);
   
   // Init Line #3  ############################################################
@@ -110,7 +111,7 @@ static void do_init(void) {
   time_lS = text_layer_create(GRect(1, 113, 94, 52));
   text_layer_set_text_color(time_lS, GColorBlack);
   text_layer_set_background_color(time_lS, GColorWhite);
-  text_layer_set_font(time_lS, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD)); 
+  text_layer_set_font(time_lS, fonts_load_custom_font(font_handle)); 
   text_layer_set_text_alignment(time_lS, GTextAlignmentCenter);
   
   // Init the text layer used to show the Add Info

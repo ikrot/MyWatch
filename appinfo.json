@@ -13,6 +13,13 @@
         "watchface": true
     },
     "resources": {
-        "media": []
+        "media": [
+            {
+                "characterRegex": "[0-9 X]",
+                "type": "font",
+                "name": "FONT_50",
+                "file": "fonts/AVANTE_EB.TTF"
+            }
+        ]
     }
 }
