@@ -1,0 +1,18 @@
+{
+    "versionLabel": "1.0",
+    "uuid": "235a0682-cbe6-4a6a-8215-700a4a3ad76c",
+    "appKeys": {},
+    "longName": "xClock#2",
+    "versionCode": 1,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "xClock#2",
+    "companyName": "kirill.gevorkyan@gmail.com",
+    "watchapp": {
+        "watchface": true
+    },
+    "resources": {
+        "media": []
+    }
+}
