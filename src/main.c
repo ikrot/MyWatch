@@ -12,6 +12,7 @@ TextLayer *time_lS;
 TextLayer *time_lS_A;
 
 // комментарий супер пупер
+// еще один коммент из другово места
 
 static void handle_battery(BatteryChargeState charge_state) {
   static char battery_text[] = "full";
